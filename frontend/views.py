@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def indexView(request):
     return render(request,'index.html')
+
+def userloginView(request):
+    return render(request,'userlogin.html')
