@@ -13,3 +13,9 @@ def userLoggedInView(request):
 
 def voterIDView(request):
     return render(request,'voterid.html')
+
+def govloginView(request):
+    return render(request,'govlogin.html')
+
+def registerView(request):
+    return render(request,'signup.html')
