@@ -7,3 +7,9 @@ def indexView(request):
 
 def userloginView(request):
     return render(request,'userlogin.html')
+
+def userLoggedInView(request):
+    return render(request,'userloggedin.html')
+
+def voterIDView(request):
+    return render(request,'voterid.html')
