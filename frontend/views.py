@@ -10,3 +10,6 @@ def userloginView(request):
 
 def userLoggedInView(request):
     return render(request,'userloggedin.html')
+
+def voterIDView(request):
+    return render(request,'voterid.html')
