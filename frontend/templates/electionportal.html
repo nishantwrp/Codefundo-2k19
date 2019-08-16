@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div style="padding-top: 100px; text-align:center;" >
+ <table style="width: 100%">
+  <tr>
+    <td>
+  <form action="" method="post" class="contactForm" style="width: 40%;display: inline-block;">
+    <div class="form-row">
+      <div class="form-group col-lg-10">
+        <input type="text" name="pincode" class="form-control" id="pincode" placeholder="Enter AADHAR Number to search"/>
+      </div>
+      <div class="text-center"><button class="btn btn-primary" onclick=updatetable() type="submit" title="Search">Search</button></div>
+    </div>
+  </form>
+  </td>
+  </tr>
+  </table>
+  
+</div>
+
+<div class="container text-center" style="padding-top: 50px;">
+    <div class="card" style="width:400px; margin:auto;box-shadow: 10px 10px grey;">
+      <img class="card-img-top" src="/static/img/testimonial-1.jpg" alt="Person's image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">Mudit Bhardwaj</h4>
+        <p class="card-text">Permanent Address: Hyderabad Gate, BHU, Varanasi, Uttar Pradesh</p>
+        <p class="card-text">Mobile Number: 9432567845</p>
+        <p class="card-text">Pincode: 221005</p>
+        <a href="#" class="btn btn-primary">Mark him as Voted</a>
+      </div>
+    </div>
+    <br>
+  </div>
+
+
+  <div class="container text-center" style="padding-top: 50px;">
+    <div class="card" style="width:400px; margin:auto;box-shadow: 10px 10px grey;">
+      <img class="card-img-top" src="/static/img/testimonial-4.jpg" alt="Person's image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">Prakhar Dwivedi</h4>
+        <p class="card-text">Permanent Address: Lanka Gate, BHU, Varanasi, Uttar Pradesh</p>
+        <p class="card-text">Mobile Number: 9874561544</p>
+        <p class="card-text">Pincode: 221005</p>
+        <a href="#" class="btn btn-danger disabled">Already Voted</a>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div class="container text-center" style="padding-top: 50px;">
+    <div class="card" style="width:400px; margin:auto;">
+      <div class="card-body">
+        <h4 class="card-title" style="color: red">No User found</h4>
+      </div>
+    </div>
+    <br>
+  </div>
+  
+
+
+
+
+<script>
+function updatetable(){
+if(document.getElementById('r1').checked) document.getElementById('reps').style.display='block'
+else document.getElementById('reps').style.display='none';
+if(document.getElementById('r2').checked) document.getElementById('pbooths').style.display='block'
+else document.getElementById('pbooths').style.display='none';
+}
+</script>
+{% endblock %}
