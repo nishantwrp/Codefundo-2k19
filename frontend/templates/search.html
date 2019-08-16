@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div style="padding-top: 100px; text-align:center;" >
+ <table style="width: 100%">
+  <tr>
+    <td>
+  <form action="" method="post" class="contactForm" style="width: 40%;display: inline-block;">
+    <div class="form-row">
+      <div class="form-group col-lg-10">
+        <input type="text" name="pincode" class="form-control" id="pincode" placeholder="Enter your area's pincode"/>
+      </div>
+      <div class="text-center"><button class="btn btn-primary" onclick=updatetable() type="submit" title="Search">Search</button></div>
+    </div>
+    <div class="form-row col-lg-12" style="text-align: center;padding:5px;">
+      <table style="width: 100%">
+        <tr>
+          <td>
+      <input id='r1' type="radio" name="type" value="representative">Representative</td>
+     <td> <input id='r2' type="radio" name="type" value="pollingbooth">Polling Booths</td>
+    </tr>  
+    </table>
+    </div>
+  </form>
+  </td>
+  </tr>
+  </table>
+  
+</div>
+
+<div id='reps' style="width:100%; margin: auto; display: none;">
+    <table class="table table-striped table-primary">
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>Full Name</th>
+                <th>Political Party</th>
+                <th>Election Symbol</th>
+                <th>Manifesto Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nishant Mittal</td>
+                <td>BSP</td>
+                <td>Snake</td>
+                <td><a href="#">Link</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Mudit Bhardwaj</td>
+                <td>BDP</td>
+                <td>Dog</td>
+                <td><a href="#">Link</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Prakhar Dwivedi</td>
+                <td>BCP</td>
+                <td>Cat</td>
+                <td><a href="#">Link</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id='pbooths' style="width:100%; margin: auto; display: none;">
+    <table class="table table-striped table-primary">
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>Serial No.</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>00420</td>
+                <td>Hyderabad Gate, BHU, Varanasi, Uttar Pradesh, 221005</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>06969</td>
+                <td>Sir Sunderlal Hospital, BHU, Varanasi, Uttar Pradesh, 221005</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+function updatetable(){
+if(document.getElementById('r1').checked) document.getElementById('reps').style.display='block'
+else document.getElementById('reps').style.display='none';
+if(document.getElementById('r2').checked) document.getElementById('pbooths').style.display='block'
+else document.getElementById('pbooths').style.display='none';
+}
+</script>
+{% endblock %}
