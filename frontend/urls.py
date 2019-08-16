@@ -8,4 +8,6 @@ urlpatterns = [
     path('login/gov/',govloginView),
     path('register/',registerView),
     path('search/',searchView),
+    path('votedusers/',votedView),
+    path('review/',reviewView),
 ]
