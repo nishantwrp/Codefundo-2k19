@@ -5,7 +5,8 @@
   <div>
   <div style="padding-top: 100px;text-align: center;">
     <h1 style='text-align: center;'>Sign Up</h1>
-    <form action="" method="post" class="contactForm" style="width: 600px;display: inline-block;">
+    <form action="#" method="POST"  style="width: 600px;display: inline-block;">
+    {% csrf_token %}
       <div class="form-row">
         <div class="form-group col-lg-6">
           <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name"/>
@@ -29,7 +30,23 @@
           <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" placeholder="Confirm Password"/>
         </div>
       </div>
-      <div class="text-center"><button class="btn btn-primary" type="submit" title="Send Message">Submit</button></div>
+      <input style = "display:none;" id = "check" value = "check" name = "check"/>
+      <div class="text-center"><button class="btn btn-primary" type="submit">Submit</button></div>
     </form>
   </div>
+  {% if password_error == True %}
+  <script>
+  alert("Passwords Don't Match");
+  </script>
+  {% endif %}
+    {% if register_error == True %}
+  <script>
+  alert("Error Because\n 1. This Email Already Exists\n 2. Invalid Data");
+  </script>
+  {% endif %}
+    {% if success == True %}
+  <script>
+  window.location = '/dashboard'
+  </script>
+  {% endif %}
 {% endblock %}
