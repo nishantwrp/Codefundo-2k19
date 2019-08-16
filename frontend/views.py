@@ -22,3 +22,9 @@ def registerView(request):
 
 def searchView(request):
     return render(request,'search.html')
+
+def votedView(request):
+    return render(request,'votedusers.html')
+
+def reviewView(request):
+    return render(request,'review.html')

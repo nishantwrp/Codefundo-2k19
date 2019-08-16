@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+<h1 style='padding-top:100px; text-align:center;'>List of users who voted </h1>
+<div style=" text-align:center;" >
+  <table style="width: 100%">
+  <tr>
+    <td>
+  <form action="" method="post" class="contactForm" style="width: 40%;display: inline-block;">
+    <div class="form-row">
+      <div class="form-group col-lg-10">
+        <input type="text" name="aadhar" class="form-control" id="aadhar" placeholder="Enter AADHAR number to search"/>
+      </div>
+      <div class="text-center"><button class="btn btn-primary" onclick=updatetable() type="submit" title="Search">Search</button></div>
+    </div>
+  </form>
+  </td>
+  </tr>
+  </table>
+  
+</div>
+
+<div id='fulltable' style="width:100%; margin: auto;">
+    <table class="table table-striped table-primary">
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>AADHAR Number</th>
+                <th>Full Name</th>
+                <th>Father's Name</th>
+                <th>Date of Birth</th>
+                <th>Pincode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>180042042069</td>
+                <td>Nishant Mittal</td>
+                <td>221005</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>180069420420</td>
+                <td>Mudit Bhardwaj</td>
+                <td>221005</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>180042069420</td>
+                <td>Prakhar Dwivedi</td>
+                <td>230001</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id='partialtable' style="width:100%; margin: auto; display: none;">
+    <table class="table table-striped table-primary">
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>AADHAR Number</th>
+                <th>Full name</th>
+                <th>Pincode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>180042042069</td>
+                <td>Nishant Mittal</td>
+                <td>221005</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+function updatetable(){
+document.getElementById('fulltable').style.display='none';
+document.getElementById('partialtable').style.display='block';
+}
+</script>
+{% endblock %}
