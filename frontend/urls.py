@@ -7,4 +7,5 @@ urlpatterns = [
     path('login/user/',userloginView),
     path('login/gov/',govloginView),
     path('register/',registerView),
+    path('search/',searchView),
 ]

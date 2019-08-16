@@ -19,3 +19,6 @@ def govloginView(request):
 
 def registerView(request):
     return render(request,'signup.html')
+
+def searchView(request):
+    return render(request,'search.html')
