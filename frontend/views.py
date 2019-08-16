@@ -22,3 +22,15 @@ def registerView(request):
 
 def searchView(request):
     return render(request,'search.html')
+
+def votedView(request):
+    return render(request,'votedusers.html')
+
+def reviewView(request):
+    return render(request,'review.html')
+
+def officialLoggedInView(request):
+    return render(request,'officialloggedin.html')
+
+def electionPortalView(request):
+    return render(request,'electionportal.html')
