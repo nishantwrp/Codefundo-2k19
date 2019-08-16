@@ -1,54 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-  <!--==========================
-  Header
-  ============================-->
-  <header id="header" class="fixed-top">
-    <div class="container">
-
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="/static/img/logo.png" alt="" class="img-fluid"></a>
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-          <!--
-          <li><a href="#about">Login</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          -->
-          <li class="drop-down"><a href="#intro">Login</a>
-            <ul>
-              <li><a href="#">User's Login</a></li>
-              <!--
-              <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-            -->
-              <li><a href="#">Management's Login</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sign Up</a></li>
-          <!--<li><a href="#contact">Contact Us</a></li>-->
-        </ul>
-      </nav><!-- .main-nav -->
-      
-    </div>
-  </header><!-- #header -->
-
-
+{% include 'navbar.html' %}
   <!--==========================
     Intro Section
   ============================-->
@@ -62,8 +15,8 @@
       <div class="intro-info">
         <h2><br><span>Make Your</span><br>Vote Count!</h2>
         <div>
-          <a href="#about" class="btn-get-started scrollto">User's Login</a>
-          <a href="#services" class="btn-services scrollto">Management's Login</a>
+          <a href="/login/user" class="btn-get-started scrollto">Login as User</a>
+          <a href="/login/gov" class="btn-services scrollto">Login as Official</a>
         </div>
       </div>
 
