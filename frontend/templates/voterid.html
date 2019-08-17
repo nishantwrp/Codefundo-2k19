@@ -10,12 +10,8 @@
   
   <div style="padding-top: 100px;text-align: center;padding-bottom: 30px";>
         <h1 style='text-align: center;'>Enter your details </h1>
-        <form action="" method="post" class="contactForm" style="width: 400px;display: inline-block;">
-          <div class="form-row">
-            <div class="form-group col-lg-12">
-            <input type="text" name="Name" class="form-control" id="name" placeholder="Full Name"/>
-            </div>
-          </div>
+        <form action="#" method="post"  style="width: 400px;display: inline-block;">
+        {% csrf_token %}
           <div class="form-row">
             <div class="form-group col-lg-12">
                 <input type="text" name="FatherName" class="form-control" id="fathername" placeholder="Father's Name"/>
@@ -38,7 +34,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-lg-12">
-                    <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number (optional)"/>
+                    <input type="number" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number"/>
                 </div>
             </div>
             <div class="form-row">
@@ -53,11 +49,26 @@
               </tr> </table>
                 </div>
             </div>
+            <input style = "display:none;" name= "check" value = "check"/>
           <div class="text-center"><button class="btn btn-primary" type="submit" title="Send Message">Submit</button></div>
         </form>
       </div>
 
       <hr>
-    
-
+     {% if success == True %}
+  <script>
+  window.location = '/dashboard';
+  </script>
+  {% endif %}
+ {% if already_created_error == True %}
+  <script>
+  alert("Error Because\n 1. You Have Already Submitted An Application\n 2. An Application With Same Aadhar Number Has Been Submitted");
+  </script>
+  {% endif %}
+  {% if submitted == True %}
+  <script>
+  alert("Your Application Has Been Submitted. You Will Be Notified By Email When Your Application Is Approved.");
+  window.location = '/dashboard';
+  </script>
+  {% endif %}
 {% endblock %}

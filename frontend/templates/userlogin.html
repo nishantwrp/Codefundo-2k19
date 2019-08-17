@@ -18,7 +18,18 @@
         </div>
       </div>
       <div class="text-center"><button class="btn btn-primary" type="submit" title="Send Message">Submit</button></div>
+      <input style = "display:none;" name="check" value="check">
       <div class="text-center" style="padding-top: 10px;"><a href="#"><u>Forgot password?</u></a></div>
     </form>
   </div>
+  {% if invalid_error == True %}
+  <script>
+  alert("Invalid Credentials");
+  </script>
+  {% endif %}
+    {% if success == True %}
+  <script>
+  window.location = '/dashboard'
+  </script>
+  {% endif %}
 {% endblock %}

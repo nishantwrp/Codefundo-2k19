@@ -18,7 +18,7 @@
           <li><a href="#team">Team</a></li>
           -->
           {% if user.is_authenticated %}
-           <li class="drop-down"><a href="/userloggedin">{{ user.first_name }} {{ user.last_name }}</a>
+           <li class="drop-down"><a href="/dashboard">{{ user.first_name }} {{ user.last_name }}</a>
             <ul>
               <li><a href="?logout=true">Log Out</a></li>
             </ul>
@@ -38,11 +38,11 @@
                 </ul>
               </li>
             -->
-              <li><a href="/login/gov">Management's Login</a></li>
+              <li><a href="/login/gov">Official's Login</a></li>
             </ul>
           </li>
 
-          <li><a href="/dashboard">Sign Up</a></li>
+          <li><a href="/register">Sign Up</a></li>
          {% endif %}
           <!--<li><a href="#contact">Contact Us</a></li>-->
         </ul>

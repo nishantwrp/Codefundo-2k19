@@ -54,5 +54,9 @@
 
       </div>
     </section><!-- #about -->
-
+    {% if success == True %}
+  <script>
+  window.location = '/dashboard'
+  </script>
+  {% endif %}
 {% endblock %}

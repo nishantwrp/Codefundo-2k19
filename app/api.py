@@ -46,3 +46,7 @@ def submit_application(aadhar):
     headers['Content-Type'] = 'application/json;charset=utf-8'
     r = requests.post(url=get_api_url(api_url),headers=headers,json=post_data)
     return r.json()
+
+def get_applications():
+    r = requests.get(url=get_api_url("contracts?workflowId=" + workflowId),headers=get_api_headers())
+    return r.json()

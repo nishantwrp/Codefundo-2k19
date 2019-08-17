@@ -1,0 +1,15 @@
+  {% if success == True %}
+  <script>
+  window.location = '/'
+  </script>
+  {% endif %}
+    {% if official == True %}
+  <script>
+  window.location = '/dashboard/official/'
+  </script>
+  {% endif %}
+    {% if user == True %}
+  <script>
+  window.location = '/dashboard/user/'
+  </script>
+  {% endif %}

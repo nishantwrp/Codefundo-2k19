@@ -12,8 +12,14 @@ class user_role(models.Model):
 class application(models.Model):
     applicant = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
     aadhar = models.TextField()
+    fathers_name = models.TextField()
+    address = models.TextField()
+    pincode = models.TextField()
+    dob = models.TextField()
+    mobile = models.TextField()
+    contract_id = models.TextField()
     def __str__(self):
-        return f'{self.user.aadhar}'
+        return f'{self.aadhar} by {self.applicant.username}'
 
 class azure_key(models.Model):
     name = models.TextField()

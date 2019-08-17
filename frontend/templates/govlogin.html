@@ -5,7 +5,8 @@
   <div>
   <div style="padding-top: 100px;text-align: center;">
     <h1 style='text-align: center;'>Login as Government Official</h1>
-    <form action="" method="post" class="contactForm" style="width: 400px;display: inline-block;">
+    <form action="#" method="post" style="width: 400px;display: inline-block;">
+    {% csrf_token %}
       <div class="form-row">
         <div class="form-group col-lg-12">
         <input type="text" name="username" class="form-control" id="username" placeholder="Username"/>
@@ -16,8 +17,19 @@
         <input type="password" name="password" class="form-control" id="password" placeholder="Password"/>
         </div>
       </div>
+      <input style = "display:none;" name = "check" value="check"/>
       <div class="text-center"><button class="btn btn-primary" type="submit" title="Send Message">Submit</button></div>
       <div class="text-center" style="padding-top: 10px;"><a href="#"><u>Forgot password?</u></a></div>
     </form>
   </div>
+  {% if invalid_error == True %}
+  <script>
+  alert("Invalid Credentials");
+  </script>
+  {% endif %}
+    {% if success == True %}
+  <script>
+  window.location = '/dashboard'
+  </script>
+  {% endif %}
 {% endblock %}

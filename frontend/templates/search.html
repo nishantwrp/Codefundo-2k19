@@ -97,4 +97,9 @@ if(document.getElementById('r2').checked) document.getElementById('pbooths').sty
 else document.getElementById('pbooths').style.display='none';
 }
 </script>
+{% if success == True %}
+  <script>
+  window.location = '/dashboard';
+  </script>
+  {% endif %}
 {% endblock %}
