@@ -25,7 +25,7 @@ SECRET_KEY = '1g5$^#i2^mhc#toy1u)3b%dsxq2il!y6l*2811s*3)6&s4!&f$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lets-vote.azurewebsites.net']
 
 
 # Application definition
