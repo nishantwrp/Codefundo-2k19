@@ -19,6 +19,7 @@ class application(models.Model):
     mobile = models.TextField()
     contract_id = models.TextField()
     approved = models.BooleanField(default=False)
+    voted = models.BooleanField(default=False)
     def __str__(self):
         return f'{self.aadhar} by {self.applicant.username}'
 

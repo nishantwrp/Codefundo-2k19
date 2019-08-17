@@ -97,7 +97,9 @@ def electionPortalView(request):
     basic_functions(request,context)
     only_official(request,context)
     if 'success' not in context:
-        pass
+        vote(request,context)
+        if 'check' in request.POST:
+            get_approved_application(request.POST['aadhar'],context)
     return render(request,'electionportal.html',context=context)
 
 def dashboardView(request):

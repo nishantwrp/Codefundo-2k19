@@ -11,6 +11,6 @@ urlpatterns = [
     path('dashboard/official/',officialLoggedInView),
     path('dashboard/',dashboardView),
     path('portal/',electionPortalView),
-    path('votedusers/',votedView),
+    path('voted/',votedView),
     path('review/',reviewView),
 ]

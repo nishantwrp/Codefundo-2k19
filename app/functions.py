@@ -116,14 +116,44 @@ def approve_or_reject(request,context):
             x = application.objects.get(id=a_id)
             x.approved = True
             x.save()
-            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your VoterId Application With Aadhar " + application.objects.get(id=a_id).aadhar + " Has Been Approved.","LetsVote Application Approved")
+            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your voterId application with aadhar " + application.objects.get(id=a_id).aadhar + " has been approved.","LetsVote Application Approved")
             context['action_success'] = True
     elif 'reject' in request.GET:
         a_id = request.GET['reject']
         if check_notapproved(a_id):
             contract_id = application.objects.get(id=a_id).contract_id
             api.application_action(contract_id,'reject')
-            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your VoterId Application With Aadhar " + application.objects.get(id=a_id).aadhar  + " Has Been Rejected. Please Try Submitting Your Application Again.","LetsVote Application Rejected")
+            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your voterId application with aadhar " + application.objects.get(id=a_id).aadhar  + " has been rejected. Please try submitting your application again.","LetsVote Application Rejected")
             application.objects.filter(id=a_id).delete()
             context['action_success'] = True
+
+def vote(request,context):
+    if 'vote' in request.GET:
+        a_id = request.GET['vote']
+        if not check_notapproved(a_id):
+            contract_id = application.objects.get(id=a_id).contract_id
+            api.application_action(contract_id,'vote')
+            x = application.objects.get(id=a_id)
+            x.voted = True
+            x.save()
+            mail.send_email(application.objects.get(id=a_id).applicant.username,"Dear " + x.applicant.first_name + " " + x.applicant.last_name + ",\nYour vote has been registered on LetsVote.","LetsVote Vote Registered")
+            context['action_success'] = True
+        
+
+def get_approved_application(aadhar,context):
+    r = application.objects.filter(aadhar=aadhar,approved=True)
+    if len(r) == 0:
+        context['found'] = False
+    else:
+        context['found'] = True
+        for obj in r:
+            app = {}
+            app['name'] = obj.applicant.first_name + " " + obj.applicant.last_name
+            app['address'] = obj.address
+            app['mobile'] = obj.mobile
+            app['aadhar'] = obj.aadhar
+            app['pincode'] = obj.pincode
+            app['voted'] = obj.voted
+            app['id'] = obj.id
+            context['application'] = app
 
