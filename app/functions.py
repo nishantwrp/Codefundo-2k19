@@ -100,6 +100,29 @@ def get_pending_applications(context):
         pending_applications.append(application_data)
     context['applications'] = pending_applications
 
+def get_voted_users(context):
+    contracts = api.get_applications()['contracts']
+    pending_applications_id = list()
+    for contract in contracts:
+        if contract['contractProperties'][0]['value'] == '3':
+            pending_applications_id.append(contract['id'])
+    pending_applications = list()
+    i = 1
+    for obj in pending_applications_id:
+        application_data = {}
+        x = application.objects.get(contract_id = obj)
+        application_data['id'] = i
+        application_data['aadhar'] = x.aadhar
+        application_data['name'] = x.applicant.first_name + " " + x.applicant.last_name
+        application_data['fathers_name'] = x.fathers_name
+        application_data['dob'] = x.dob
+        application_data['address'] = x.address
+        application_data['pincode'] = x.pincode
+        application_data['mobile'] = x.mobile
+        pending_applications.append(application_data)
+        i += 1
+    context['applications'] = pending_applications
+
 def check_notapproved(a_id):
     x = application.objects.get(id=a_id)
     if x.approved == False:

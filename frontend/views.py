@@ -70,6 +70,9 @@ def searchView(request):
 def votedView(request):
     context = {}
     basic_functions(request,context)
+    only_official(request,context)
+    if 'success' not in context:
+        get_voted_users(context)
     return render(request,'votedusers.html',context=context)
 
 def reviewView(request):
