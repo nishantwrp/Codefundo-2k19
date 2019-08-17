@@ -10,7 +10,7 @@ urlpatterns = [
     path('search/',searchView),
     path('dashboard/official/',officialLoggedInView),
     path('dashboard/',dashboardView),
-    path('electionportal/',electionPortalView),
+    path('portal/',electionPortalView),
     path('votedusers/',votedView),
     path('review/',reviewView),
 ]

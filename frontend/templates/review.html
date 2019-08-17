@@ -40,4 +40,9 @@
   window.location = '/dashboard'
   </script>
   {% endif %}
+   {% if action_success == True %}
+  <script>
+  window.location = '/review'
+  </script>
+  {% endif %}
 {% endblock %}

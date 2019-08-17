@@ -7,12 +7,14 @@
  <table style="width: 100%">
   <tr>
     <td>
-  <form action="" method="post" class="contactForm" style="width: 40%;display: inline-block;">
+  <form action="#" method="post"  style="width: 40%;display: inline-block;">
+  {% csrf_token %}
     <div class="form-row">
       <div class="form-group col-lg-10">
         <input type="text" name="pincode" class="form-control" id="pincode" placeholder="Enter AADHAR Number to search"/>
       </div>
-      <div class="text-center"><button class="btn btn-primary" onclick=updatetable() type="submit" title="Search">Search</button></div>
+      <input style="display:none;" name="check" value="check"/>
+      <div class="text-center"><button class="btn btn-primary" type="submit" title="Search">Search</button></div>
     </div>
   </form>
   </td>
@@ -58,17 +60,9 @@
     </div>
     <br>
   </div>
-  
-
-
-
-
-<script>
-function updatetable(){
-if(document.getElementById('r1').checked) document.getElementById('reps').style.display='block'
-else document.getElementById('reps').style.display='none';
-if(document.getElementById('r2').checked) document.getElementById('pbooths').style.display='block'
-else document.getElementById('pbooths').style.display='none';
-}
-</script>
+  {% if success == True %}
+  <script>
+  window.location = '/dashboard';
+  </script>
+  {% endif %}
 {% endblock %}

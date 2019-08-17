@@ -81,7 +81,9 @@ def reviewView(request):
             return render(request,'review.html',context=context)
     except:
         pass
-    get_pending_applications(context)
+    approve_or_reject(request,context)
+    if 'action_success' not in context:
+        get_pending_applications(context)
     return render(request,'review.html',context=context)
 
 def officialLoggedInView(request):
@@ -91,7 +93,12 @@ def officialLoggedInView(request):
     return render(request,'officialloggedin.html',context=context)
 
 def electionPortalView(request):
-    return render(request,'electionportal.html')
+    context = {}
+    basic_functions(request,context)
+    only_official(request,context)
+    if 'success' not in context:
+        pass
+    return render(request,'electionportal.html',context=context)
 
 def dashboardView(request):
     context = {}

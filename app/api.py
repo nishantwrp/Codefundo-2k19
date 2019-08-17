@@ -3,11 +3,12 @@ from .models import *
 import requests
 
 # Id's
-connectionId       = "1"
-ledgerId           = "1"
-workflowId         = "2"
-contractCodeId     = "2"
-workflowFunctionId = "5"
+connectionId        = "1"
+ledgerId            = "1"
+workflowId          = "2"
+contractCodeId      = "2"
+workflowFunctionId  = "5"
+application_function_id = {"approve": 6,"reject": 7,"vote": 8}
 
 def get_api_headers():
     a_url = azure_key.objects.get(name="a_url").key
@@ -49,4 +50,12 @@ def submit_application(aadhar):
 
 def get_applications():
     r = requests.get(url=get_api_url("contracts?workflowId=" + workflowId),headers=get_api_headers())
+    return r.json()
+
+def application_action(contract_id,action):
+    post_data = {
+        "workflowFunctionID": application_function_id[action],
+        "workflowActionParameters": []
+    }
+    r = requests.post(url=get_api_url("contracts/" + contract_id + "/actions/"),headers=get_api_headers(),json=post_data)
     return r.json()

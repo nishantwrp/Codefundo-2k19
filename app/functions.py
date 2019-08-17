@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import *
 from app import api
+from app import mail
 
 def register_user(request,email,first_name,last_name,password):
     try:
@@ -98,3 +99,31 @@ def get_pending_applications(context):
         application_data['status'] = "Pending"
         pending_applications.append(application_data)
     context['applications'] = pending_applications
+
+def check_notapproved(a_id):
+    x = application.objects.get(id=a_id)
+    if x.approved == False:
+        return True
+    else:
+        return False
+
+def approve_or_reject(request,context):
+    if 'approve' in request.GET:
+        a_id = request.GET['approve']
+        if check_notapproved(a_id):
+            contract_id = application.objects.get(id=a_id).contract_id
+            api.application_action(contract_id,'approve')
+            x = application.objects.get(id=a_id)
+            x.approved = True
+            x.save()
+            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your VoterId Application With Aadhar " + application.objects.get(id=a_id).aadhar + " Has Been Approved.","LetsVote Application Approved")
+            context['action_success'] = True
+    elif 'reject' in request.GET:
+        a_id = request.GET['reject']
+        if check_notapproved(a_id):
+            contract_id = application.objects.get(id=a_id).contract_id
+            api.application_action(contract_id,'reject')
+            mail.send_email(application.objects.get(id=a_id).applicant.username,"Your VoterId Application With Aadhar " + application.objects.get(id=a_id).aadhar  + " Has Been Rejected. Please Try Submitting Your Application Again.","LetsVote Application Rejected")
+            application.objects.filter(id=a_id).delete()
+            context['action_success'] = True
+
