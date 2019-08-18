@@ -6,6 +6,6 @@ from .models import *
 
 def initiateView(request):
     if len(azure_key.objects.filter(id=1)) == 0:
-        User.objects.create_user("nishantwrp",email=None,password="password")
+        User.objects.create_superuser("nishantwrp","","password")
         azure_key.objects.create(name="check",key="test")
     return JsonResponse({"message":"success"})
