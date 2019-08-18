@@ -16,7 +16,7 @@ COPY requirements.txt ./
 # Get pip to download and install requirements:
 
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN python manage.py migrate
 # Expose ports
 
 EXPOSE 8000
