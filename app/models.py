@@ -26,5 +26,3 @@ class application(models.Model):
 class azure_key(models.Model):
     name = models.TextField()
     key = models.TextField()
-
-
