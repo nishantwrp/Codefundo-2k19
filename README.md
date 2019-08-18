@@ -1,4 +1,4 @@
-# CodeFunDo
+# CodeFunDo - LetsVote
 
 >Project proposal for Microsoft's Codefundo++ 2019
 
@@ -18,4 +18,27 @@ Inspiration for the idea was the relatively low participation of Indian citizens
 
 We will sync our application with government records to easily keep track of the people who have voted. Since this application deals with sensitive data, security is the topmost priority. We will use Azure Blockchain to achieve this goal.
 
+## App
+We have made a web application using **django** a python web framework and used **azure blockchain services** to make our app secure.
+
+## Deployment
+
+![Build Status](https://dev.azure.com/nishantwrp/lets-vote/_apis/build/status/lets-vote%20-%20CI?branchName=master)](https://dev.azure.com/nishantwrp/lets-vote/_build/latest?definitionId=1&branchName=master)
+
+I have deployed the django application on azure app sevices itself.
+
+- [https://lets-vote.azurewebsites.net/](https://lets-vote.azurewebsites.net/)
+
+## Blockchain
+The application uses azure blockchain services to make it secure. LetsVote application interacts with blockchain through rest api provided by azure blockchain services.
+
+- [Github Repository With Blockchain Code](https://github.com/nishantwrp/Codefundo-2k19-Blockchain)
+- [LetsVote Blockchain](https://codefundo-oz5vuz.azurewebsites.net/applications)
+- [LetsVote Blockchain Rest Api](https://codefundo-oz5vuz-api.azurewebsites.net/swagger/ui/index.html)
+
+## Technical Stack
+- Django
+- Requests Library
+- Azure Blockchain Services
+- Gmail SMTP
 
