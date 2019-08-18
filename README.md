@@ -23,7 +23,7 @@ We have made a web application using **django** a python web framework and used 
 
 ## Deployment
 
-![Build Status](https://dev.azure.com/nishantwrp/lets-vote/_apis/build/status/lets-vote%20-%20CI?branchName=master)](https://dev.azure.com/nishantwrp/lets-vote/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/nishantwrp/lets-vote/_apis/build/status/lets-vote%20-%20CI?branchName=master)](https://dev.azure.com/nishantwrp/lets-vote/_build/latest?definitionId=1&branchName=master)
 
 I have deployed the django application on azure app sevices itself.
 
