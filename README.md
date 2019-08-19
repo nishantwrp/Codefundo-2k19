@@ -42,3 +42,6 @@ The application uses azure blockchain services to make it secure. LetsVote appli
 - Azure Blockchain Services
 - Gmail SMTP
 
+## Official Credentials
+- username : admin
+- passsword: nishantwrp
