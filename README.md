@@ -45,3 +45,6 @@ The application uses azure blockchain services to make it secure. LetsVote appli
 ## Official Credentials
 - username : admin
 - passsword: nishantwrp
+
+## Note
+>As the azure pass credits limit has reached the application link won't work
