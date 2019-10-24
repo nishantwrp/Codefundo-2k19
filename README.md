@@ -1,6 +1,6 @@
 # CodeFunDo - LetsVote
 
->Project proposal for Microsoft's Codefundo++ 2019
+>Project proposal for Microsoft's Codefundo++   2019
 
 ---
 ### Team :- /data/study_material
