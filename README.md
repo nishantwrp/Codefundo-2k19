@@ -47,7 +47,7 @@ The application uses azure blockchain services to make it secure. LetsVote appli
 - passsword: nishantwrp
 
 ## Note
-> The app may not work perfectly as shown in video because the azure credits limit have exceeded
+> The app does not work now because the azure credits limit have exceeded
 
 ## Contributions
 
