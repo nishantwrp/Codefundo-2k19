@@ -19,7 +19,7 @@ Inspiration for the idea was the relatively low participation of Indian citizens
 We will sync our application with government records to easily keep track of the people who have voted. Since this application deals with sensitive data, security is the topmost priority. We will use Azure Blockchain to achieve this goal.
 
 ## App
-We have made a web application using **django** a python web framework and used **azure blockchain services** to make our app secure.
+We have made a web app using **django** a python web framework and used **azure blockchain services** to make our app secure.
 
 ## Deployment
 
